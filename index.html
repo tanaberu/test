@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BMI計算機</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        #container {
+            width: 300px;
+            margin: 0 auto;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>BMI計算機</h1>
+        <p>身長（m）: <input type="text" id="height"></p>
+        <p>体重（kg）: <input type="text" id="weight"></p>
+        <p><button onclick="calculateBMI()">計算</button></p>
+        <p>BMI: <span id="bmiResult"></span></p>
+
+    </div>
+
+    <script>
+        function calculateBMI() {
+            var height = parseFloat(document.getElementById("height").value);
+            var weight = parseFloat(document.getElementById("weight").value);
+
+            if (!isNaN(height) && !isNaN(weight) && height > 0 && weight > 0) {
+                var bmi = weight / (height * height);
+                document.getElementById("bmiResult").textContent = bmi.toFixed(2);
+            } else {
+                alert("有効な身長と体重を入力してください。");
+            }
+        }
+    </script>
+</body>
+</html>
